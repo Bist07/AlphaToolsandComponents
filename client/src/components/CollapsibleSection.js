@@ -31,7 +31,11 @@ const CollapsibleSection = ({ title, children }) => {
                     cursor: 'pointer',
                 }}
             >
-                <Typography variant="h4" color="primary" sx={{ mx: 7 }}>
+                <Typography variant="h4" color="primary" sx={{
+                    mx: 7, '@media (max-width: 768px)': {
+                        mx: '5px',
+                    },
+                }}>
                     {title}
                 </Typography>
                 <IconButton>
@@ -44,8 +48,8 @@ const CollapsibleSection = ({ title, children }) => {
                 <Box sx={{
                     padding: '0 70px', color: '#333', display: 'flex', flexDirection: 'row', mr: 15,
                     '@media (max-width: 768px)': {
-                        flexDirection: 'column', // Stack content vertically on small screens
-                        padding: '0 20px', // Adjust padding for mobile
+                        flexDirection: 'column',
+                        padding: '0 20px', align: 'centre',
                     },
                 }}>{children}</Box>
             </Collapse>

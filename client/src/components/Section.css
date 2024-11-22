@@ -16,3 +16,20 @@
     padding: 10px 80px;
     color: #1294d2;
   }
+
+  /* Mobile-friendly Styles */
+@media (max-width: 768px) {
+  .section {
+      padding: 1.5rem;
+  }
+
+  .section h2 {
+      font-size: 1.5rem;
+  }
+
+  .section p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      padding: 0px 8px;
+  }
+}

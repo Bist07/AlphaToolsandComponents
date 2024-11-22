@@ -36,9 +36,10 @@
     }
 
    .hero img {
-        height: 150px;
+        height: 80px;
         margin-top: 5px;
         margin-left: 10px;
+        margin-right: 10px;
     }
 
     .hero.collapsed img {

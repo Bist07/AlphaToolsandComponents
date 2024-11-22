@@ -21,12 +21,13 @@ const ProjectsGallery = () => {
         <Box
             component="section"
             sx={{
-                padding: '60px 20px',
+                padding: '40px 10px',
                 backgroundColor: '#f4f6f8',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                position: 'relative', // For positioning the arrows
+                position: 'relative',
+                overflow: 'hidden',
             }}
         >
             {/* Left Arrow */}
@@ -34,14 +35,15 @@ const ProjectsGallery = () => {
                 onClick={handlePrev}
                 sx={{
                     position: 'absolute',
-                    left: '10px',
+                    left: { xs: '5px', sm: '10px' },
                     zIndex: 1,
                     backgroundColor: '#fff',
                     borderRadius: '50%',
                     boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+                    '&:hover': { backgroundColor: '#e0e0e0' },
                 }}
             >
-                <ArrowBackIos />
+                <ArrowBackIos fontSize="small" />
             </IconButton>
 
             {/* Image Gallery */}
@@ -49,22 +51,24 @@ const ProjectsGallery = () => {
                 sx={{
                     display: 'flex',
                     alignItems: 'center',
-                    overflow: 'hidden', // To avoid horizontal scrolling
-                    maxWidth: '100%', // Ensures the images don't overflow
-                    justifyContent: 'center', // Center images
+                    overflow: 'hidden', // Prevents overflow
+                    width: '100%',
+                    justifyContent: 'center',
                 }}
             >
                 {images.map((image, index) => (
                     <Card
                         key={index}
                         sx={{
-                            margin: '0 10px',
-                            width: currentIndex === index ? '35%' : '20%', // Center image is larger
+                            margin: { xs: '0 5px', sm: '0 10px' },
+                            width: currentIndex === index ? '50%' : '30%', // Adjusted widths for mobile
                             transition: '0.3s',
-                            transform: currentIndex === index ? 'scale(1.1)' : 'scale(0.9)', // Bigger and more prominent
-                            boxShadow: currentIndex === index ? '0px 8px 20px rgba(0, 0, 0, 0.2)' : '0px 4px 12px rgba(0, 0, 0, 0.1)',
-                            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                            maxWidth: '100%', // Make sure cards don't overflow horizontally
+                            transform: currentIndex === index ? 'scale(1.1)' : 'scale(0.9)',
+                            boxShadow:
+                                currentIndex === index
+                                    ? '0px 8px 20px rgba(0, 0, 0, 0.2)'
+                                    : '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                            maxWidth: '100%',
                         }}
                     >
                         <CardMedia
@@ -88,14 +92,15 @@ const ProjectsGallery = () => {
                 onClick={handleNext}
                 sx={{
                     position: 'absolute',
-                    right: '10px',
+                    right: { xs: '5px', sm: '10px' },
                     zIndex: 1,
                     backgroundColor: '#fff',
                     borderRadius: '50%',
                     boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+                    '&:hover': { backgroundColor: '#e0e0e0' },
                 }}
             >
-                <ArrowForwardIos />
+                <ArrowForwardIos fontSize="small" />
             </IconButton>
         </Box>
     );
