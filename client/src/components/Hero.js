@@ -30,7 +30,7 @@ function Hero() {
 
     return (
         <section className={`hero ${isCollapsed ? 'collapsed' : ''}`} >
-            <img src={logo} alt="Logo" style={{ height: 200, marginTop: 8, marginLeft: 20 }} />
+            <img src={logo} alt="Logo" />
         </section>
     );
 }

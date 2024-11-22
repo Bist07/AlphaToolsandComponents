@@ -41,7 +41,13 @@ const CollapsibleSection = ({ title, children }) => {
 
             {/* Collapsible Content */}
             <Collapse in={isOpen}>
-                <Box sx={{ padding: '0 70px', color: '#333', display: 'flex', flexDirection: 'row', mr: 15 }}>{children}</Box>
+                <Box sx={{
+                    padding: '0 70px', color: '#333', display: 'flex', flexDirection: 'row', mr: 15,
+                    '@media (max-width: 768px)': {
+                        flexDirection: 'column', // Stack content vertically on small screens
+                        padding: '0 20px', // Adjust padding for mobile
+                    },
+                }}>{children}</Box>
             </Collapse>
 
             {/* Bottom Divider */}

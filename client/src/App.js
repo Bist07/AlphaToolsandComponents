@@ -42,7 +42,7 @@ function App() {
                     </Typography>
                 </div>
                 <div >
-                    <img src={CNC} alt="DOOSAN" style={{ height: 500 }} />
+                    <img src={CNC} alt="DOOSAN" />
                 </div>
             </CollapsibleSection>
             <CollapsibleSection title="Turning">
@@ -62,7 +62,7 @@ function App() {
                     </Typography>
                 </div>
                 <div >
-                    <img src={lathes} alt="FIRSTV700" style={{ height: 500, }} />
+                    <img src={lathes} alt="FIRSTV700" />
                 </div>
             </CollapsibleSection >
             <div id="contact" />
