@@ -49,7 +49,7 @@ const CollapsibleSection = ({ title, children }) => {
                     padding: '0 70px', color: '#333', display: 'flex', flexDirection: 'row', mr: 15,
                     '@media (max-width: 768px)': {
                         flexDirection: 'column',
-                        padding: '0 20px', align: 'centre',
+                        padding: '0 20px', align: 'centre', mr: 5,
                     },
                 }}>{children}</Box>
             </Collapse>
