@@ -1,4 +1,4 @@
-// src/components/Section.js
+
 import React from 'react';
 import './Section.css';
 

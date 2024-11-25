@@ -26,7 +26,7 @@ function App() {
             <CollapsibleSection title="CNC Milling">
                 <div style={{ flex: '1', margin: '0 10px' }}>
                     <Typography variant="h4">
-                        Daewoo DMV-4020 3-Axis CNC
+                        Daewoo DMV-4020
                         <Typography>
                             <br />
                             <b>Machine Control:</b> Fanuc 21i-MB<br />

@@ -1,21 +1,43 @@
+
+
 import React, { useState } from 'react';
 import { Box, Card, CardMedia, IconButton } from '@mui/material';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 
-import image1 from '../images/example.jpeg';
+import image1 from '../images/3axis.png';
+import image2 from '../images/cnc.webp';
+import image3 from '../images/example.jpeg';
+import image4 from '../images/herobg.jpg';
+import image5 from '../images/lathes.png';
 
-const images = [image1, image1, image1, image1, image1];
+const images = [image1, image2, image3, image4, image5];
+
 
 const ProjectsGallery = () => {
-    const [currentIndex, setCurrentIndex] = useState(2); // Start with the middle image
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     const handlePrev = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? images.length - 1 : prevIndex - 1
+        );
     };
 
     const handleNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+        setCurrentIndex((prevIndex) =>
+            prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        );
     };
+
+    // Determine the indices of the images to display
+    const getVisibleImages = () => {
+        const visibleImages = [];
+        for (let i = 0; i < 3; i++) {
+            visibleImages.push(images[(currentIndex + i) % images.length]);
+        }
+        return visibleImages;
+    };
+
+    const visibleImages = getVisibleImages();
 
     return (
         <Box
@@ -35,7 +57,7 @@ const ProjectsGallery = () => {
                 onClick={handlePrev}
                 sx={{
                     position: 'absolute',
-                    left: { xs: '5px', sm: '10px' },
+                    left: { xs: '10px', sm: '20px' },
                     zIndex: 1,
                     backgroundColor: '#fff',
                     borderRadius: '50%',
@@ -51,21 +73,26 @@ const ProjectsGallery = () => {
                 sx={{
                     display: 'flex',
                     alignItems: 'center',
-                    overflow: 'hidden', // Prevents overflow
+                    overflow: 'hidden',
                     width: '100%',
                     justifyContent: 'center',
                 }}
             >
-                {images.map((image, index) => (
+                {visibleImages.map((image, index) => (
                     <Card
                         key={index}
+                        onClick={() => {
+                            if (index === 0) handlePrev(); // Left side image
+                            else if (index === 2) handleNext(); // Right side image
+                        }}
                         sx={{
                             margin: { xs: '0 5px', sm: '0 10px' },
-                            width: currentIndex === index ? '50%' : '30%', // Adjusted widths for mobile
+                            width: index === 1 ? '40%' : '20%', // Highlight the center image
                             transition: '0.3s',
-                            transform: currentIndex === index ? 'scale(1.1)' : 'scale(0.9)',
+                            transform: index === 1 ? 'scale(1.0)' : 'scale(0.8)',
+                            cursor: index === 1 ? 'default' : 'pointer',
                             boxShadow:
-                                currentIndex === index
+                                index === 1
                                     ? '0px 8px 20px rgba(0, 0, 0, 0.2)'
                                     : '0px 4px 12px rgba(0, 0, 0, 0.1)',
                             maxWidth: '100%',
@@ -73,14 +100,17 @@ const ProjectsGallery = () => {
                     >
                         <CardMedia
                             component="img"
-                            height="300"
                             image={image}
                             alt={`Project ${index + 1}`}
                             sx={{
                                 borderRadius: '12px',
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
+                                width: '100%', // Enforce card width
+                                height: '300px', // Set a fixed height
+                                objectFit: 'cover', // Scale the image to cover the box while maintaining aspect ratio
+                                '@media (max-width: 768px)': {
+                                    height: '100px', // Set a fixed height
+                                },
+
                             }}
                         />
                     </Card>
@@ -92,7 +122,7 @@ const ProjectsGallery = () => {
                 onClick={handleNext}
                 sx={{
                     position: 'absolute',
-                    right: { xs: '5px', sm: '10px' },
+                    right: { xs: '10px', sm: '20px' },
                     zIndex: 1,
                     backgroundColor: '#fff',
                     borderRadius: '50%',

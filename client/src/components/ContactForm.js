@@ -64,7 +64,7 @@ const ContactForm = () => {
     };
 
     return (
-        <Box display="flex" justifyContent="center" padding="40px" bgcolor="#f9f9f9">
+        <Box display="flex" justifyContent="center" padding="40px" bgcolor="#f4f6f8'">
             <Card sx={{ width: '100%', maxWidth: 800, boxShadow: 3, borderRadius: 2 }}>
                 <CardContent>
                     <Box display="flex" flexDirection="column" alignItems="flex-start" mb={2}>
