@@ -11,9 +11,9 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:3000', // Replace with your frontend's URL
+    origin: 'https://www.alphatnc.ca',
     methods: ['GET', 'POST'],
-    credentials: true // Optional, if you need cookies or auth headers
+    credentials: true
 }));
 
 app.use(bodyParser.json());
@@ -33,7 +33,7 @@ app.post('/send-email', (req, res) => {
 
     const mailOptions = {
         from: email,
-        to: 'abhiek7@gmail.com', // Your email to receive messages
+        to: 'alphatoolsandcomponents@outlook.com', // Your email to receive messages
         subject: `Contact form submission from ${name}`,
         text: `
             Name: ${name}

@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Typography } from '@mui/material';
 import './Hero.css';
 import logo from '../images/logo.png';
 
@@ -31,6 +32,9 @@ function Hero() {
     return (
         <section className={`hero ${isCollapsed ? 'collapsed' : ''}`} >
             <img src={logo} alt="Logo" />
+            <Typography >
+                CUSTOM MACHINING CNC SHOP
+            </Typography>
         </section>
     );
 }

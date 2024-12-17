@@ -25,7 +25,6 @@ const Header = () => {
             >
                 <Toolbar sx={{ justifyContent: 'space-between' }}>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1, ml: 1 }}>
-                        ALPHA TOOLS AND COMPONENTS INC.
                     </Typography>
 
                     {/* Mobile Menu Button */}
