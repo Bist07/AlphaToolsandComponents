@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-    origin: 'http://www.alphatnc.ca',
+    origin: 'https://www.alphatnc.ca',
     methods: ['GET', 'POST'],
     credentials: true
 }));
