@@ -4,12 +4,12 @@ import React, { useState } from 'react';
 import { Box, Card, CardMedia, IconButton } from '@mui/material';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 
-import image1 from '../images/image (1).jpg';
-import image2 from '../images/image (2).jpg';
-import image3 from '../images/image (3).jpg';
-import image4 from '../images/image (4).jpg';
-import image5 from '../images/image (5).jpg';
-import image6 from '../images/image (6).jpg';
+import image1 from '../images/image(1).jpg';
+import image2 from '../images/image(2).jpg';
+import image3 from '../images/image(3).jpg';
+import image4 from '../images/image(4).jpg';
+import image5 from '../images/image(5).jpg';
+import image6 from '../images/image(6).jpg';
 
 const images = [image1, image2, image3, image4, image5, image6];
 
@@ -107,7 +107,7 @@ const ProjectsGallery = () => {
                                 borderRadius: '12px',
                                 width: '100%', // Enforce card width
                                 height: '300px', // Set a fixed height
-                                objectFit: 'cover', // Scale the image to cover the box while maintaining aspect ratio
+                                objectFit: 'fill', // Scale the image to cover the box while maintaining aspect ratio
                                 '@media (max-width: 768px)': {
                                     height: '100px', // Set a fixed height
                                 },

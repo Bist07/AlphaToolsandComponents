@@ -36,16 +36,28 @@ const ContactForm = () => {
             return;
         }
 
+
         try {
-            await axios.post('http://localhost:5000/send-email', formData);
-            setSuccess(true);
-            setFormData({
-                name: '',
-                company: '',
-                email: '',
-                phone: '',
-                message: ''
+            // You may need to include the access token in headers if OAuth2 is in use
+            const accessToken = localStorage.getItem('access_token');  // Or fetch it from the app's state
+
+            // Add the access token to the request header
+            const response = await axios.post('http://localhost:5000/send-email', formData, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`, // Send the access token here
+                },
             });
+
+            if (response.status === 200) {
+                setSuccess(true);
+                setFormData({
+                    name: '',
+                    company: '',
+                    email: '',
+                    phone: '',
+                    message: ''
+                });
+            }
         } catch (error) {
             setError('Failed to send email. Please try again later.');
         }
@@ -64,7 +76,7 @@ const ContactForm = () => {
     };
 
     return (
-        <Box display="flex" justifyContent="center" padding="40px" bgcolor="#f4f6f8'">
+        <Box display="flex" justifyContent="center" padding="40px" bgcolor="#f4f6f8">
             <Card sx={{ width: '100%', maxWidth: 800, boxShadow: 3, borderRadius: 2 }}>
                 <CardContent>
                     <Box display="flex" flexDirection="column" alignItems="flex-start" mb={2}>
