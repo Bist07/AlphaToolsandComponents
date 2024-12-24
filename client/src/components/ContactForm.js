@@ -42,7 +42,7 @@ const ContactForm = () => {
             const accessToken = localStorage.getItem('access_token');  // Or fetch it from the app's state
 
             // Add the access token to the request header
-            const response = await axios.post('https://alphatnc-5138977eb927.herokuapp.com//send-email', formData, {
+            const response = await axios.post('https://alphatnc-5138977eb927.herokuapp.com/send-email', formData, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`, // Send the access token here
                 },
