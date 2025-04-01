@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import './Hero.css';
 import logo from '../images/logo.png';
 
@@ -30,12 +30,30 @@ function Hero() {
     }, [lastScrollY]);
 
     return (
-        <section className={`hero ${isCollapsed ? 'collapsed' : ''}`} >
-            <img src={logo} alt="Logo" />
-            <Typography >
-                CUSTOM MACHINING CNC SHOP
-            </Typography>
-        </section>
+        <Box className={`hero ${isCollapsed ? 'collapsed' : ''}`}
+            sx={{
+                boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset',
+            }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', }}>
+                <img src={logo} alt="Logo" />
+            </Box>
+            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3, }}>
+                <Typography
+
+                    sx={{
+
+                        fontWeight: 'bold',
+                        justifySelf: 'center',
+                        color: '#fff',
+                        flexDirection: { xs: 'column', sm: 'row' },
+                        alignItems: 'center',
+                        fontSize: 'clamp(2rem, 10vw, 2.5rem)',
+                    }}
+                >
+                    CUSTOM MACHINING CNC SHOP
+                </Typography>
+            </Box>
+        </Box>
     );
 }
 

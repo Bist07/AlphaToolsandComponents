@@ -11,7 +11,8 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-    origin: 'https://www.alphatnc.ca',
+    origin: '*',
+    //origin: 'https://www.alphatnc.ca',
     methods: ['GET', 'POST'],
     credentials: true
 }));
@@ -53,6 +54,7 @@ app.post('/send-email', (req, res) => {
         res.status(200).json({ message: 'Email sent successfully' });
     });
 });
+
 
 // Start the server
 app.listen(PORT, () => {

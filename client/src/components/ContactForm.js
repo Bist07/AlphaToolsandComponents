@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { TextField, Button, Box, Typography, Card, CardContent, Alert } from '@mui/material';
+import { TextField, Button, Box, Typography, Card, CardContent, Alert, InputLabel, Stack, OutlinedInput } from '@mui/material';
 import axios from 'axios';
-
+import bgImg from '../images/pexels-mikhail-nilov-9242167.jpg'
 const ContactForm = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -76,8 +76,8 @@ const ContactForm = () => {
     };
 
     return (
-        <Box display="flex" justifyContent="center" padding="40px" bgcolor="#f4f6f8">
-            <Card sx={{ width: '100%', maxWidth: 800, boxShadow: 3, borderRadius: 2 }}>
+        <Box display="flex" justifyContent="center" sx={{ mt: 15, mb: 15 }}>
+            <Card sx={{ width: '100%', maxWidth: 800, boxShadow: 3, borderRadius: 2, bgcolor: 'rgba(0, 0, 0, 0.7)' }}>
                 <CardContent>
                     <Box display="flex" flexDirection="column" alignItems="flex-start" mb={2}>
                         <Typography variant="h4" color="primary" gutterBottom>
@@ -89,67 +89,98 @@ const ContactForm = () => {
                     </Box>
                     {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
                     {success && <Alert severity="success" sx={{ mb: 2 }}>Email sent successfully!</Alert>}
-                    <Box component="form" onSubmit={handleSubmit} display="grid" gridTemplateColumns="1fr 1fr" gap={2}>
-                        <TextField
-                            label="Name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            variant="outlined"
-                            fullWidth
-                            required
-                        />
-                        <TextField
-                            label="Company"
-                            name="company"
-                            value={formData.company}
-                            onChange={handleChange}
-                            variant="outlined"
-                            fullWidth
-                        />
-                        <TextField
-                            label="Email"
-                            name="email"
-                            type="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            variant="outlined"
-                            fullWidth
-                            required
-                        />
-                        <TextField
-                            label="Phone"
-                            name="phone"
-                            type="tel"
-                            value={formData.phone}
-                            onChange={handleChange}
-                            variant="outlined"
-                            fullWidth
-                        />
-                        <TextField
-                            label="Message"
-                            name="message"
-                            value={formData.message}
-                            onChange={handleChange}
-                            variant="outlined"
-                            multiline
-                            rows={4}
-                            fullWidth
-                            required
-                            sx={{ gridColumn: 'span 2' }}
-                        />
-                        <Box display="flex" gap={2} sx={{ gridColumn: 'span 2' }}>
-                            <Button type="submit" variant="contained" color="primary" fullWidth>
-                                Submit
-                            </Button>
-                            <Button onClick={handleReset} variant="outlined" color="secondary" fullWidth>
-                                Reset
-                            </Button>
-                        </Box>
+                    <Box component="form" onSubmit={handleSubmit} >
+                        <Stack spacing={2}>
+                            <Stack direction={'row'} spacing={2}>
+                                <Stack width={'100%'}>
+                                    <InputLabel>Name*</InputLabel>
+                                    <OutlinedInput
+                                        autoComplete
+                                        name="name"
+                                        placeholder='First name'
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        variant="outlined"
+                                        fullWidth
+                                        required
+                                        sx={{ bgcolor: 'rgba(0, 0, 0, 0.7)', color: 'white' }}
+                                    />
+                                </Stack>
+                                <Stack width={'100%'}>
+                                    <InputLabel>Company</InputLabel>
+                                    <OutlinedInput
+                                        name="company"
+                                        placeholder='Company name'
+                                        value={formData.company}
+                                        onChange={handleChange}
+                                        variant="outlined"
+                                        fullWidth
+                                        sx={{ bgcolor: 'rgba(0, 0, 0, 0.7)', color: 'white' }}
+                                    />
+                                </Stack>
+                            </Stack>
+                            <Stack direction={'row'} spacing={2}>
+                                <Stack width={'100%'}>
+                                    <InputLabel>Email*</InputLabel>
+                                    <OutlinedInput
+                                        autoComplete
+                                        name="email"
+                                        type="email"
+                                        placeholder='Email address'
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        variant="outlined"
+                                        fullWidth
+                                        required
+                                        sx={{ bgcolor: 'rgba(0, 0, 0, 0.7)', color: 'white' }}
+                                    />
+                                </Stack>
+                                <Stack width={'100%'}>
+                                    <InputLabel>Phone number</InputLabel>
+                                    <OutlinedInput
+                                        autoComplete
+                                        name="phone"
+                                        type="tel"
+                                        value={formData.phone}
+                                        placeholder='Phone Number'
+                                        onChange={handleChange}
+                                        variant="outlined"
+                                        fullWidth
+                                        sx={{ bgcolor: 'rgba(0, 0, 0, 0.7)', color: 'white' }}
+                                    />
+                                </Stack>
+                            </Stack>
+                            <Stack width={'100%'}>
+                                <InputLabel >Message*</InputLabel>
+                                <OutlinedInput
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    variant="outlined"
+                                    required
+                                    rows={3}
+                                    multiline
+                                    fullWidth
+                                    sx={{ bgcolor: 'rgba(0, 0, 0, 0.7)', color: 'white' }}
+                                />
+                            </Stack>
+                            <Stack direction={'row'} spacing={2}>
+                                <Button type="submit" variant="contained" color="primary" fullWidth>
+                                    Submit
+                                </Button>
+                                <Button onClick={handleReset} variant="outlined" color="secondary" fullWidth sx={{
+                                    backgroundColor: 'transparent', color: 'white', borderColor: 'divider', '&:hover': {
+                                        backgroundColor: 'rgba(0, 0, 0, 0.7)'
+                                    }
+                                }}>
+                                    Reset
+                                </Button>
+                            </Stack>
+                        </Stack>
                     </Box>
                 </CardContent>
             </Card>
-        </Box>
+        </Box >
     );
 };
 

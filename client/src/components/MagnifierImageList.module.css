@@ -1,0 +1,25 @@
+@import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.min.css";
+
+.magnifierContainer {
+ 
+  height: 40vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1vmin; /* directly using your --gap value */
+}
+
+.magnifierContainer img {
+  transition: flex 0.5s, filter 0.5s;
+  height: 100%;
+  filter: grayscale(1) brightness(0.75);
+  object-fit: cover;
+  overflow: hidden;
+  flex: 1;
+}
+
+.magnifierContainer img:hover {
+  filter: grayscale(0) brightness(1.15);
+  flex: 3;
+}

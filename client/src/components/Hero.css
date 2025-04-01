@@ -1,6 +1,6 @@
 
 .hero {
-  background-image: linear-gradient(to bottom, rgba(140, 141, 147, 0.52), #363636), url('../images/herobg.jpg');
+  background-image: linear-gradient(to bottom, rgba(140, 141, 147, 0.2), #363636), url('../images/herobg.jpg');
   background-size: cover;
   background-color: #424242;
   color: white;
@@ -41,7 +41,7 @@
 
    .hero img {
         height: 80px;
-        margin-top: 5px;
+        margin-top: 40px;
         margin-left: 10px;
         margin-right: 10px;
     }
