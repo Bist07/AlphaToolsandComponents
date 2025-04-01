@@ -11,7 +11,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Features from './components/Features';
 import MasonryImageList from './components/MasonryImageList';
 import bgImg from './images/pexels-mikhail-nilov-9242167.jpg'
-import formBg from './images/formbg.jpg'
 import { Box, Stack } from '@mui/material';
 function App(props) {
     return (
