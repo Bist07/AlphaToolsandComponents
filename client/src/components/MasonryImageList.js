@@ -34,7 +34,7 @@ export default function MagnifierImageList() {
                 </Box>
                 <Box className={styles.magnifierContainer} sx={{ padding: 2 }}>
                     {images.map((img, index) => (
-                        <img key={index} src={img} alt={`Image ${index + 1}`} />
+                        <img key={index} src={img} alt={`CNC machined part ${index + 1}`} loading="lazy" />
                     ))}
                 </Box>
             </Box>
