@@ -83,7 +83,7 @@ const ContactForm = () => {
                         <Typography variant="h4" color="primary" gutterBottom>
                             Contact Us
                         </Typography>
-                        <Typography variant="body1" color="textSecondary">
+                        <Typography variant="body1" color="white" >
                             Fill out the form to get in touch with us!
                         </Typography>
                     </Box>
@@ -93,7 +93,7 @@ const ContactForm = () => {
                         <Stack spacing={2}>
                             <Stack direction={'row'} spacing={2}>
                                 <Stack width={'100%'}>
-                                    <InputLabel>Name*</InputLabel>
+                                    <InputLabel sx={{ color: 'white' }}>Name*</InputLabel>
                                     <OutlinedInput
                                         autoComplete
                                         name="name"
@@ -107,7 +107,7 @@ const ContactForm = () => {
                                     />
                                 </Stack>
                                 <Stack width={'100%'}>
-                                    <InputLabel>Company</InputLabel>
+                                    <InputLabel sx={{ color: 'white' }}>Company</InputLabel>
                                     <OutlinedInput
                                         name="company"
                                         placeholder='Company name'
@@ -121,7 +121,7 @@ const ContactForm = () => {
                             </Stack>
                             <Stack direction={'row'} spacing={2}>
                                 <Stack width={'100%'}>
-                                    <InputLabel>Email*</InputLabel>
+                                    <InputLabel sx={{ color: 'white' }}>Email*</InputLabel>
                                     <OutlinedInput
                                         autoComplete
                                         name="email"
@@ -136,7 +136,7 @@ const ContactForm = () => {
                                     />
                                 </Stack>
                                 <Stack width={'100%'}>
-                                    <InputLabel>Phone number</InputLabel>
+                                    <InputLabel sx={{ color: 'white' }}>Phone number</InputLabel>
                                     <OutlinedInput
                                         autoComplete
                                         name="phone"
@@ -151,7 +151,7 @@ const ContactForm = () => {
                                 </Stack>
                             </Stack>
                             <Stack width={'100%'}>
-                                <InputLabel >Message*</InputLabel>
+                                <InputLabel sx={{ color: 'white' }} >Message*</InputLabel>
                                 <OutlinedInput
                                     name="message"
                                     value={formData.message}
